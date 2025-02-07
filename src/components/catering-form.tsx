@@ -74,7 +74,7 @@ export function CateringForm() {
     <div className="max-w-2xl mx-auto p-6">
       <div className="mb-8">
         <h2 className="text-3xl font-bold">Catering Request</h2>
-        <p className="text-muted-foreground mt-2">Fill out the form below and we'll get back to you within 24 hours.</p>
+        <p className="text-muted-foreground mt-2">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
       </div>
 
       <Form {...form}>
@@ -292,7 +292,7 @@ export function CateringForm() {
                   <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                  <FormLabel>I'd like to get texts about specials, events, and other exclusive offers</FormLabel>
+                  <FormLabel>I&apos;d like to get texts about specials, events, and other exclusive offers</FormLabel>
                   <FormDescription>
                     By checking this box, you agree to our{" "}
                     <a href="/privacy" className="text-primary underline">
