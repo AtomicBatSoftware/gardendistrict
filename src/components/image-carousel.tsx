@@ -18,7 +18,10 @@ export function FullScreenCarousel() {
     {
       loop: true
     },
-    [Autoplay({ delay: 7000 })]
+    [Autoplay({
+      delay: 7000,
+      stopOnInteraction: false
+    })]
   );
 
   return (

@@ -12,7 +12,7 @@ export function MenuItem({ name, description, price }: MenuItemProps) {
           <h3 className="font-semibold">{name}</h3>
           {description && <p className="text-sm text-gray-600 mt-1">{description}</p>}
         </div>
-        <div className="font-semibold whitespace-nowrap">${price}</div>
+        {price && <div className="font-semibold whitespace-nowrap">${price}</div>}
       </div>
     </div>
   )
