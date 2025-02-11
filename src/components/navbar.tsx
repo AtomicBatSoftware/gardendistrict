@@ -3,7 +3,7 @@ import { Facebook, Instagram } from "lucide-react"
 
 export function Navbar() {
   return (
-    <nav className="bg-[#2A1F2D] px-4 py-3">
+    <nav className="bg-[#2A1F2D] px-4 py-3 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-3">
           <NavLink href="/" label="HOME" />
@@ -11,10 +11,6 @@ export function Navbar() {
           <NavLink href="/menu" label="MENU"/>
           <Separator />
           <NavLink href="https://www.clover.com/online-ordering/gardendistrict-grand-rapids#" label="ORDER" />
-          <Separator />
-          <NavLink href="https://www.waitlist.me/w/17334990070#" label="RESERVE" />
-          <Separator />
-          <NavLink href="/catering" label="CATERING" />
         </div>
         <div className="flex items-center space-x-4">
           <Link href="https://www.facebook.com/profile.php?id=61572319708987#" className="text-[#B4A365] hover:text-[#D4C385]">
