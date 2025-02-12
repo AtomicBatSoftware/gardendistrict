@@ -456,13 +456,14 @@ export function Menu() {
     <div className="min-h-screen w-full bg-[#f5f5f5] p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-row justify-center mb-12 space-x-2">
-          <button onClick={()=>{setMenuSelection("FOOD")}} className="bg-[#1a1a1a] text-[#c17f59] px-12 py-2">FOOD</button>
-          <button onClick={()=>{setMenuSelection("DRINKS")}} className="bg-[#1a1a1a] text-[#c17f59] px-12 py-2">DRINKS</button>
+          <button onClick={()=>{setMenuSelection("FOOD")}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">FOOD</button>
+          <button onClick={()=>{setMenuSelection("DRINKS")}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">DRINKS</button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="columns-1 md:columns-2 gap-4">
+
           {menuData.filter((item) => item.category === menuSelection).map((section, sectionIndex) => (
-            <div key={sectionIndex} className="bg-whiste p-8 shadow-lg">
+            <div key={sectionIndex} className="bg-white p-8 shadow-lg flex flex-col break-inside-avoid mb-6">
               <h2 className="text-3xl font-bold mb-4">{section.type}</h2>
               {
                 section.description &&
@@ -480,6 +481,7 @@ export function Menu() {
               ))}
             </div>
           ))}
+
         </div>
       </div>
     </div>

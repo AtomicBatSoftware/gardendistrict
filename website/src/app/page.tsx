@@ -8,8 +8,8 @@ export default function Home() {
       <InfoBanner message="special deal"/>
       <Navbar />
       <FullScreenCarousel/>
-      <div className="flex flex-col items-center py-12 space-y-4">
-        <div className="text-center pt-4 text-5xl">
+      <div className="bg-[#FAF9F6] flex flex-col items-center py-12 space-y-4">
+        <div className="text-[#b77e08] text-center pt-4 text-5xl">
           HOURS & LOCATION
         </div>
         <div id="locationSection" className="text-center text-2xl">

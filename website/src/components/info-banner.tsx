@@ -15,12 +15,12 @@ export function InfoBanner(props: InfoBannerProps) {
 
   return (
     isVisible && (
-      <div className="bg-blue-500 text-white p-4 left-0 w-full shadow-lg">
+      <div className="bg-[#b77e08] text-white p-4 left-0 w-full shadow-lg">
         <div className="flex justify-between items-center max-w-6xl mx-auto">
-          <p className="text-lg">{props.message}</p>
+          <p className="text-xl">{props.message}</p>
           <button
             onClick={dismissBanner}
-            className="text-white hover:text-gray-300 focus:outline-none"
+            className="text-[#702963] hover:text-gray-300 focus:outline-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
