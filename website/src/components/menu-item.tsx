@@ -1,7 +1,7 @@
 interface MenuItemProps {
   name: string
   description?: string
-  price: string
+  price?: string
 }
 
 export function MenuItem({ name, description, price }: MenuItemProps) {
