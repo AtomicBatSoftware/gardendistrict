@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "deploy:upload": "npm run build && dotenvx run --env-file=../.env -- aws s3 sync ./out s3://garden-district --delete --size-only",
+    "deploy:invalidate": "dotenvx run --env-file=../.env -- aws cloudfront create-invalidation --distribution-id E2T6OUJCPZ0G4Q --paths \"/*\" --no-cli-pager >/dev/null",
+    "deploy": "npm run deploy:upload && npm run deploy:invalidate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -29,6 +33,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.35.0",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",

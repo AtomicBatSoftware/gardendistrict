@@ -1,0 +1,32 @@
+{
+  "name": "garden-district-infrastructure",
+  "version": "1.0.0",
+  "bin": {
+    "src": "bin/src.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "bootstrap": "dotenvx run --env-file=../.env -- cdk bootstrap",
+    "create": "dotenvx run --env-file=../.env -- cdk deploy",
+    "create-nr": "dotenvx run --env-file=../.env -- cdk deploy --no-rollback",
+    "diff": "dotenvx run --env-file=../.env -- cdk diff",
+    "destroy": "dotenvx run --env-file=../.env -- cdk destroy"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "22.10.7",
+    "aws-cdk": "2.176.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.3"
+  },
+  "dependencies": {
+    "@aws-solutions-constructs/aws-cloudfront-s3": "^2.76.0",
+    "@dotenvx/dotenvx": "^1.33.0",
+    "aws-cdk-lib": "2.176.0",
+    "constructs": "^10.4.2"
+  }
+}
