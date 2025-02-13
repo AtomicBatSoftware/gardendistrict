@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { MenuItem } from "@/components/menu-item";
+import { MenuItem as MenuItemComponent } from "@/components/menu-item";
 import Papa from "papaparse";
 
 interface CsvMenuDataRow {
@@ -38,6 +38,7 @@ const CACHE_KEY = "menuCache";
 const CACHE_EXPIRATION_KEY = "menuCacheExpiration";
 const CACHE_TTL = 1000 * 60 * 60 * 24; // 1 day expiration
 
+// TODO: need to persist these in a separate file as a fallback menu in the shape of Menu above
 // const menuData = [
 //   {
 //     category: "FOOD",
@@ -608,7 +609,7 @@ export function Menu() {
                 </p>
               }
               {section.items.map((item, itemIndex) => (
-                <MenuItem
+                <MenuItemComponent
                   key={itemIndex}
                   name={item.name}
                   description={item.description}
