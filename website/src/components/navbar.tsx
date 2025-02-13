@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import  Link  from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Menu, X } from "lucide-react"; // Assuming you're using Lucide icons
 
 export const Navbar = () => {
@@ -17,7 +18,14 @@ export const Navbar = () => {
       <nav className="bg-[#483248] px-4 py-3 sticky top-0 left-0 right-0 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           {/* Logo or Brand */}
-          <div className="text-white font-bold text-xl">Garden District</div>
+          <div>
+            <Image
+              src="/gd_logo_transparent.png"
+              height={75}
+              width={75}
+              alt="logo"
+              />
+          </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-3">
@@ -28,6 +36,11 @@ export const Navbar = () => {
             <NavLink
               href="https://www.clover.com/online-ordering/gardendistrict-grand-rapids#"
               label="ORDER"
+            />
+            <Separator />
+            <NavLink
+              href="https://www.waitlist.me/w/17334990070#"
+              label="RESERVE"
             />
           </div>
 
@@ -61,7 +74,7 @@ export const Navbar = () => {
 
       {/* Mobile Side Menu */}
       <div
-        className={`fixed inset-y-0 right-0 w-64 bg-[#483248] z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 right-0 w-64 bg-[#483248] z-[60] transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -81,6 +94,10 @@ export const Navbar = () => {
             <NavLink
               href="https://www.clover.com/online-ordering/gardendistrict-grand-rapids#"
               label="ORDER"
+            />
+            <NavLink
+              href="https://www.waitlist.me/w/17334990070#"
+              label="RESERVE"
             />
           </div>
 

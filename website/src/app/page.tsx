@@ -5,7 +5,7 @@ import { InfoBanner } from "@/components/info-banner";
 export default function Home() {
   return (
     <div>
-      <InfoBanner message="special deal"/>
+      <InfoBanner message="Call 616-317-7373 to reserve a table"/>
       <Navbar />
       <FullScreenCarousel/>
       <div className="bg-[#FAF9F6] flex flex-col items-center py-12 space-y-4">
@@ -21,9 +21,13 @@ export default function Home() {
         </div>
         <div id="hoursSection" className="text-center text-2xl">
           <p className="font-bold underline text-lg text-center">Hours:</p>
-          Monday-Thursday 11:30am-9:00pm
+          Monday-Thursday
           <br/>
-          Friday & Saturday 11:30am-10:00pm
+          11:30am-3:00pm 4:30pm-9:00pm
+          <br/>
+          Friday & Saturday
+          <br/>
+          11:30am-3:00pm 4:30pm-10:00pm
           <br/>
           Sunday Closed
         </div>

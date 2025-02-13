@@ -7,10 +7,9 @@ import Image from "next/image";
 
 
 const images = [
-  "/image1.png",
-  "/image2.png",
-  "/image3.png",
-  "/image4.png"
+  "/SUB18040.jpg",
+  "/SUB16982.jpg",
+  "/SUB18023.jpg",
 ];
 
 export function FullScreenCarousel() {

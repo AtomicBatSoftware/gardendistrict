@@ -337,7 +337,7 @@ const menuData = [
       },
       {
         name: "Flavored Lemonade",
-        description: "Peach, Strawberry, Mango, Blackberry, Pineapple, Passion Fruit, Agave",
+        description: "Peach, Strawberry, Mango, Blackberry, Pineapple, Passion Fruit",
         price: "4.00"
       },
       {
@@ -356,7 +356,7 @@ const menuData = [
         price: "5.00"
       },
       {
-        name: "Cafe DuMonde Coffee",
+        name: "Cafe Du Monde Coffee",
         description: "",
         price: "5.00"
       }
@@ -430,7 +430,7 @@ const menuData = [
   },
   {
     category: "DRINKS",
-    type: "BUBBLES WINE",
+    type: "BUBBLES",
     items: [
       {
         name: "Freixenet Prosecco Rose, Italy",
