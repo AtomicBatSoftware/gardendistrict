@@ -19,12 +19,14 @@ export const Navbar = () => {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           {/* Logo or Brand */}
           <div>
-            <Image
-              src="/gd_logo_transparent.png"
-              height={75}
-              width={75}
-              alt="logo"
-              />
+            <Link href="/">
+              <Image
+                src="/gd_logo_transparent.png"
+                height={75}
+                width={75}
+                alt="logo"
+                />
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}
