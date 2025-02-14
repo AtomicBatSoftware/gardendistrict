@@ -17,11 +17,11 @@ export class WebsiteStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // this.certificate = new Certificate(this, 'Certificate', {
-    //   domainName: config.domainName,
-    //   subjectAlternativeNames: [`*.${config.domainName}`],
-    //   validation: CertificateValidation.fromDns(),
-    // });
+    this.certificate = new Certificate(this, 'Certificate', {
+      domainName: config.domainName,
+      subjectAlternativeNames: [`*.${config.domainName}`],
+      validation: CertificateValidation.fromDns(),
+    });
 
     this.cloudfrontS3 = new CloudFrontToS3(this, 'CloudfrontS3', {
       insertHttpSecurityHeaders: false,
@@ -45,8 +45,8 @@ export class WebsiteStack extends cdk.Stack {
         autoDeleteObjects: true,
       },
       cloudFrontDistributionProps: {
-        // domainNames: [config.domainName, `www.${config.domainName}`],
-        // certificate: this.certificate,
+        domainNames: [config.domainName, `www.${config.domainName}`],
+        certificate: this.certificate,
         defaultRootObject: 'index.html',
         errorResponses: [
           {
@@ -67,7 +67,6 @@ export class WebsiteStack extends cdk.Stack {
       },
     });
 
-    // TODO: once we are ready to link to the domain, uncomment domain names and cert stuff and follow the below in the client's domain registrar:
     // During stack creation, had to add the AWS ACM Cert Validation CNAME record to domain registrar.
     // After stack creation, had to add root and www CNAME records to domain registrar pointing to the AWS Cloudfront distro.
   }
