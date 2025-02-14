@@ -17,11 +17,11 @@ export class WebsiteStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // this.certificate = new Certificate(this, 'Certificate', {
-    //   domainName: config.domainName,
-    //   subjectAlternativeNames: [`*.${config.domainName}`],
-    //   validation: CertificateValidation.fromDns(),
-    // });
+    this.certificate = new Certificate(this, 'Certificate', {
+      domainName: config.domainName,
+      subjectAlternativeNames: [`*.${config.domainName}`],
+      validation: CertificateValidation.fromDns(),
+    });
 
     this.cloudfrontS3 = new CloudFrontToS3(this, 'CloudfrontS3', {
       insertHttpSecurityHeaders: false,
@@ -45,8 +45,8 @@ export class WebsiteStack extends cdk.Stack {
         autoDeleteObjects: true,
       },
       cloudFrontDistributionProps: {
-        // domainNames: [config.domainName, `www.${config.domainName}`],
-        // certificate: this.certificate,
+        domainNames: [config.domainName, `www.${config.domainName}`],
+        certificate: this.certificate,
         defaultRootObject: 'index.html',
         errorResponses: [
           {
