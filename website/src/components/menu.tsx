@@ -65,7 +65,7 @@ export function Menu() {
     async function fetchData() {
       try {
         const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFe8zXVdVW7slOpUu8hsp32MnnEz1ZGRivhEWJjaBUIWxz5jRXd8qYjKrZ05KEQG0F-kT1YFlFiSaZ/pub?output=csv";
-        const dataResponse = await fetch(dataUrl, { 
+        const dataResponse = await fetch(dataUrl, {
           redirect: "follow",
           cache: "no-store", // Prevent browser cache
           headers: {
@@ -96,7 +96,7 @@ export function Menu() {
               if (!acc[row.category]) {
                 acc[row.category] = {};
               }
-              
+
               // Create type if it doesn't exist
               if (!acc[row.category][row.typeName]) {
                 acc[row.category][row.typeName] = {
@@ -104,7 +104,7 @@ export function Menu() {
                   description: row.typeDescription // Will take first occurrence
                 };
               }
-              
+
               // Add item to the type
               acc[row.category][row.typeName].items.push({
                 name: row.itemName,
@@ -112,7 +112,7 @@ export function Menu() {
                 price: row.itemPrice,
                 bulkPrice: row.itemBulkPrice,
               });
-              
+
               return acc;
             }, {} as Record<string, Record<string, { items: MenuItem[], description?: string }>>);
 
@@ -161,10 +161,10 @@ export function Menu() {
           <button onClick={()=>{setMenuCategorySelection('FOOD')}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">FOOD</button>
           <button onClick={()=>{setMenuCategorySelection('DRINKS')}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">DRINKS</button>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="columns-1 md:columns-2 gap-4">
           {
             (menuCategorySelection === 'FOOD' ? menu.food : menu.drinks).sections.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="bg-white p-8 shadow-lg">
+              <div key={sectionIndex} className="bg-white p-8 shadow-lg flex flex-col break-inside-avoid mb-6">
                 <h2 className="text-3xl font-bold mb-4">{section.type}</h2>
                 {
                   section.description &&
