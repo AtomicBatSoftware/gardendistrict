@@ -67,7 +67,6 @@ export class WebsiteStack extends cdk.Stack {
       },
     });
 
-    // TODO: once we are ready to link to the domain, uncomment domain names and cert stuff and follow the below in the client's domain registrar:
     // During stack creation, had to add the AWS ACM Cert Validation CNAME record to domain registrar.
     // After stack creation, had to add root and www CNAME records to domain registrar pointing to the AWS Cloudfront distro.
   }
