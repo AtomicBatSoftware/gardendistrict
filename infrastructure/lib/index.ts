@@ -1,7 +1,7 @@
 import { CloudFrontToS3 } from '@aws-solutions-constructs/aws-cloudfront-s3';
 import * as cdk from 'aws-cdk-lib';
 import { Certificate, CertificateValidation } from 'aws-cdk-lib/aws-certificatemanager';
-import { AllowedMethods, ViewerProtocolPolicy } from 'aws-cdk-lib/aws-cloudfront';
+import { AllowedMethods, FunctionCode, FunctionEventType, ViewerProtocolPolicy, Function } from 'aws-cdk-lib/aws-cloudfront';
 import { BlockPublicAccess, BucketAccessControl } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 import { config } from '../config/shared';
@@ -63,6 +63,37 @@ export class WebsiteStack extends cdk.Stack {
         defaultBehavior: {
           allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
           viewerProtocolPolicy: ViewerProtocolPolicy.ALLOW_ALL,
+          functionAssociations: [{
+            function: new Function(this, 'UrlRewriteFunction', {
+              code: FunctionCode.fromInline(`
+                function handler(event) {
+                  var request = event.request;
+                  var uri = request.uri;
+                  
+                  // Handle root path
+                  if (uri === '/') {
+                    request.uri = '/index.html';
+                    return request;
+                  }
+    
+                  // Remove trailing slash
+                  if (uri.endsWith('/')) {
+                    uri = uri.slice(0, -1);
+                  }
+    
+                  // Check if uri points to a file (has an extension)
+                  if (uri.includes('.')) {
+                    return request;
+                  }
+    
+                  // Append index.html to handle sub-routes
+                  request.uri = uri + '/index.html';
+                  return request;
+                }
+              `)
+            }),
+            eventType: FunctionEventType.VIEWER_REQUEST
+          }]
         },
       },
     });
