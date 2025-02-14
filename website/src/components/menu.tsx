@@ -34,7 +34,7 @@ interface MenuItem {
   name: string;
   description?: string;
   price?: number;
-  itemBulkPrice?: number;
+  bulkPrice?: number;
 }
 
 const CACHE_KEY = "menuCache";
@@ -110,7 +110,7 @@ export function Menu() {
                 name: row.itemName,
                 description: row.itemDescription,
                 price: row.itemPrice,
-                itemBulkPrice: row.itemBulkPrice,
+                bulkPrice: row.itemBulkPrice,
               });
               
               return acc;
@@ -178,7 +178,7 @@ export function Menu() {
                     name={item.name}
                     description={item.description}
                     price={item.price?.toString()}
-                    bulkPrice={item.itemBulkPrice?.toString()}
+                    bulkPrice={item.bulkPrice?.toString()}
                   />
                 ))}
               </div>
