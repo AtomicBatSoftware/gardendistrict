@@ -12,6 +12,7 @@ interface CsvMenuDataRow {
   itemName: string;
   itemDescription?: string;
   itemPrice?: number;
+  itemBulkPrice?: number;
 }
 
 export interface Menu {
@@ -33,6 +34,7 @@ interface MenuItem {
   name: string;
   description?: string;
   price?: number;
+  itemBulkPrice?: number;
 }
 
 const CACHE_KEY = "menuCache";
@@ -80,7 +82,7 @@ export function Menu() {
           skipEmptyLines: true,
           dynamicTyping: false, // Prevent unintended type conversions
           transform: (value, column) => {
-            if (column === "itemPrice") {
+            if (column === "itemPrice" || column === "itemBulkPrice") {
               return Number(value) || undefined;
             }
 
@@ -107,7 +109,8 @@ export function Menu() {
               acc[row.category][row.typeName].items.push({
                 name: row.itemName,
                 description: row.itemDescription,
-                price: row.itemPrice
+                price: row.itemPrice,
+                itemBulkPrice: row.itemBulkPrice,
               });
               
               return acc;
@@ -155,13 +158,13 @@ export function Menu() {
     <div className="min-h-screen w-full bg-[#f5f5f5] p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-row justify-center mb-12 space-x-2">
-          <button onClick={()=>{setMenuCategorySelection('FOOD')}} className="bg-[#1a1a1a] text-[#c17f59] px-12 py-2">FOOD</button>
-          <button onClick={()=>{setMenuCategorySelection('DRINKS')}} className="bg-[#1a1a1a] text-[#c17f59] px-12 py-2">DRINKS</button>
+          <button onClick={()=>{setMenuCategorySelection('FOOD')}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">FOOD</button>
+          <button onClick={()=>{setMenuCategorySelection('DRINKS')}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">DRINKS</button>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           {
             (menuCategorySelection === 'FOOD' ? menu.food : menu.drinks).sections.map((section, sectionIndex) => (
-              <div key={sectionIndex} className="bg-whiste p-8 shadow-lg">
+              <div key={sectionIndex} className="bg-white p-8 shadow-lg">
                 <h2 className="text-3xl font-bold mb-4">{section.type}</h2>
                 {
                   section.description &&
@@ -175,6 +178,7 @@ export function Menu() {
                     name={item.name}
                     description={item.description}
                     price={item.price?.toString()}
+                    bulkPrice={item.itemBulkPrice?.toString()}
                   />
                 ))}
               </div>
