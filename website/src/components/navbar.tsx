@@ -44,6 +44,8 @@ export const Navbar = () => {
               href="https://www.waitlist.me/w/17334990070#"
               label="RESERVE"
             />
+            <Separator />
+            <NavLink href="/contact" label="CONTACT" />
           </div>
 
           {/* Social Icons (Desktop) */}
@@ -101,6 +103,7 @@ export const Navbar = () => {
               href="https://www.waitlist.me/w/17334990070#"
               label="RESERVE"
             />
+            <NavLink href="/contact" label="CONTACT" />
           </div>
 
           {/* Social Icons (Mobile) */}
