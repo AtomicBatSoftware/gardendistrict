@@ -15,7 +15,7 @@ export default function ContactPage() {
               </div>
               <div className="mt-4">
                   <p className="text-gray-600">Phone:</p>
-                  <div>(616) 317-7373</div>
+                  <div>(616) 376-4002</div>
               </div>
             </div>
       </div>
