@@ -5,7 +5,7 @@ import { InfoBanner } from "@/components/info-banner";
 export default function Home() {
   return (
     <div>
-      <InfoBanner message="Call 616-317-7373 to reserve a table"/>
+      <InfoBanner message="Call 616-376-4002 to reserve a table"/>
       <Navbar />
       <FullScreenCarousel/>
       <div className="bg-[#FAF9F6] flex flex-col items-center py-12 space-y-4">
@@ -17,7 +17,7 @@ export default function Home() {
           <br/>
           Grand Rapids, MI 49503
           <br/>
-          (616) 317-7373
+          (616) 376-4002
         </div>
         <div id="hoursSection" className="text-center text-2xl">
           <p className="font-bold underline text-lg text-center">Hours:</p>
