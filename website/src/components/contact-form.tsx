@@ -3,6 +3,9 @@
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { useState } from 'react'
+import { X } from 'lucide-react'
+
 
 import {
   Form,
@@ -22,6 +25,7 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Alert, AlertDescription } from './ui/alert'
 
 // Schema for contact form validation
 const formSchema = z.object({
@@ -37,7 +41,10 @@ const formSchema = z.object({
     .min(10, { message: 'Message must be at least 10 characters long' }),
 })
 
-export default function ContactFormPreview() {
+export default function ContactForm() {
+  const [responsePending, setResponsePending] = useState(false);
+  const [alert, setAlert] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,8 +60,34 @@ export default function ContactFormPreview() {
       // Simulate a successful contact form submission
       console.log(values)
       console.log("Sending message");
+      const url = "https://api.atomicbatsoftware.com/batmail";
+      const data = {
+        tenantId: '96861870-5477-4df8-bb33-2cd9eef1cff8',
+        subject: "[Batmail][GardenDistrict-Contact]",
+        message: {
+          text: JSON.stringify(values, null, 2)
+        }
+      };
+
+      setResponsePending(true);
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      setResponsePending(false);
+      if (response.status === 200) {
+        setAlert({ type: 'success', message: 'Message sent successfully!' });
+      } else {
+        setAlert({ type: 'error', message: 'Failed to send message. Please try again.' });
+      }
     } catch (error) {
-      console.error('Error submitting contact form', error)
+      console.error("Error sending request:", error);
+      setResponsePending(false);
+      setAlert({ type: 'error', message: 'Failed to send message. Please try again.' });
     }
   }
 
@@ -153,10 +186,19 @@ export default function ContactFormPreview() {
                     </FormItem>
                   )}
                 />
-                {/*className="w-full bg-[#b77e08] text-[#483248]"*/}
-                <Button type="submit" className="w-full bg-[#b77e08] font-bold text-white">
-                  Send Message
+
+                <Button type="submit" className="w-full bg-[#b77e08] font-bold text-white" disabled={responsePending}>
+                  {responsePending ? <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-5 h-5 mr-2"></span> : null}
+                  {responsePending ? "Sending..." : "Send Message"}
                 </Button>
+                {alert && (
+                  <Alert className={`relative ${alert.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                    <button onClick={() => setAlert(null)} className="absolute top-2 right-2 text-black">
+                      <X className="w-4 h-4" />
+                    </button>
+                    <AlertDescription>{alert.message}</AlertDescription>
+                  </Alert>
+                )}
               </div>
             </form>
           </Form>
