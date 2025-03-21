@@ -45,6 +45,11 @@ export const Navbar = () => {
               label="RESERVE"
             />
             <Separator />
+            <NavLink
+              href="/catering"
+              label="CATERING"
+            />
+            <Separator />
             <NavLink href="/contact" label="CONTACT" />
           </div>
 
@@ -103,6 +108,7 @@ export const Navbar = () => {
               href="https://www.waitlist.me/w/17334990070#"
               label="RESERVE"
             />
+            <NavLink href="/catering" label="CATERING" />
             <NavLink href="/contact" label="CONTACT" />
           </div>
 
