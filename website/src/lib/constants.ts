@@ -1,7 +1,9 @@
 import { Menu } from "@/components/menu";
 
-export const fallbackMenuDate = '2/14/2025';
-export const fallbackMenu: Menu = {
+export const CACHE_TTL = 1000 * 60 * 60 * 24; // 1 day expiration
+
+export const fallbackMainMenuDate = '2/14/2025';
+export const fallbackMainMenu: Menu = {
     food: {
         sections: [
             {
