@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { MenuItemComponent } from "@/components/menu-item";
-import { fallbackMainMenu, fallbackMainMenuDate } from '@/lib/constants';
 import { fetchMenuData } from '@/data-fetcher/sheet-fetcher';
 
 
@@ -29,21 +28,25 @@ export interface MenuItem {
   bulkPrice?: number;
 }
 
-const CACHE_KEY = "menuCache";
-const CACHE_EXPIRATION_KEY = "menuCacheExpiration";
-const MAIN_MENU_SHEET_LINK = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFe8zXVdVW7slOpUu8hsp32MnnEz1ZGRivhEWJjaBUIWxz5jRXd8qYjKrZ05KEQG0F-kT1YFlFiSaZ/pub?output=csv";
-
-export function Menu() {
+interface MenuProps {
+  menuSheetUrl: string;
+  cacheKey: string;
+  cacheExpirationKey: string;
+  fallbackMenu: Menu;
+  fallbackMenuDate: string;
+}
+export function Menu(props: MenuProps) {
   const [menuCategorySelection, setMenuCategorySelection] = useState<'FOOD' | 'DRINKS'>('FOOD');
-  const [menu, setMenu] = useState<Menu>(fallbackMainMenu);
+  // TODO: add "data loading" state here. Setting menu causes a flicker of prices when re-rendering menu
+  const [menu, setMenu] = useState<Menu>(props.fallbackMenu);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const shouldRefresh = urlParams.has("refresh");
 
     const now = Date.now();
-    const cachedData = localStorage.getItem(CACHE_KEY);
-    const cacheExpiration = localStorage.getItem(CACHE_EXPIRATION_KEY);
+    const cachedData = localStorage.getItem(props.cacheKey);
+    const cacheExpiration = localStorage.getItem(props.cacheExpirationKey);
 
     // Use cache if it exists & isn't expired & no refresh requested
     if (cachedData && cacheExpiration && !shouldRefresh && now < Number(cacheExpiration)) {
@@ -55,18 +58,24 @@ export function Menu() {
     }
 
     async function fetchData() {
-      fetchMenuData(MAIN_MENU_SHEET_LINK, setMenu, CACHE_KEY, CACHE_EXPIRATION_KEY, fallbackMainMenu, fallbackMainMenuDate);
+      fetchMenuData(props.menuSheetUrl, setMenu, props.cacheKey, props.cacheExpirationKey, props.fallbackMenu, props.fallbackMenuDate);
     }
 
     fetchData();
-  }, []);
+  }, [props]);
 
   return (
     <div className="min-h-screen w-full bg-[#f5f5f5] p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-row justify-center mb-12 space-x-2">
           <button onClick={()=>{setMenuCategorySelection('FOOD')}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">FOOD</button>
-          <button onClick={()=>{setMenuCategorySelection('DRINKS')}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">DRINKS</button>
+          {
+            // TODO: populate this sections by seeing what is available in spreadsheet
+            menu.drinks.sections.length !== 0 &&
+            <button onClick={()=>{setMenuCategorySelection('DRINKS')}} className="bg-[#483248] text-[#c17f59] hover:bg-[#702963] hover:text-[#FFD700] px-12 py-2">DRINKS</button>
+          }
+
+
         </div>
         <div className="columns-1 md:columns-2 gap-4">
           {

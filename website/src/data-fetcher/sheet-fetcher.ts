@@ -12,6 +12,11 @@ interface CsvMenuDataRow {
   itemBulkPrice?: number;
 }
 
+/**
+* This function (1) pulls csv data from the url, (2) parses the csv
+* (3) sets react state, and (4) caches menu data in browser.
+*/
+
 export async function fetchMenuData(dataUrl: string, setMenu: (menu : Menu) => void, cacheKey: string, cacheExpirationKey: string, fallbackMenu? : Menu, fallbackMenuDate? : string) {
   try {
     //const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFe8zXVdVW7slOpUu8hsp32MnnEz1ZGRivhEWJjaBUIWxz5jRXd8qYjKrZ05KEQG0F-kT1YFlFiSaZ/pub?output=csv";

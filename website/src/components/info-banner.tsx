@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 interface InfoBannerProps {
   message: string;
+  link?: string;
 }
 
 export function InfoBanner(props: InfoBannerProps) {
@@ -17,7 +18,7 @@ export function InfoBanner(props: InfoBannerProps) {
     isVisible && (
       <div className="bg-[#b77e08] text-white p-4 left-0 w-full shadow-lg">
         <div className="flex justify-between items-center max-w-6xl mx-auto">
-          <p className="text-lg">{props.message}</p>
+          <p className="text-lg inline">{props.message}{props.link && <> See <a className='underline' href={props.link}>here</a></>}</p>
           <button
             onClick={dismissBanner}
             className="text-[#702963] hover:text-gray-300 focus:outline-none"
