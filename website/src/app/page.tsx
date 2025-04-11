@@ -5,7 +5,7 @@ import { InfoBanner } from "@/components/info-banner";
 export default function Home() {
   return (
     <div>
-      <InfoBanner message="Call 616-376-4002 to reserve a table"/>
+      <InfoBanner message="Catering now available." link="/catering"/>
       <Navbar />
       <FullScreenCarousel/>
       <div className="bg-[#FAF9F6] flex flex-col items-center py-12 space-y-4">

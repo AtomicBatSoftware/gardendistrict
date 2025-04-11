@@ -1,7 +1,9 @@
 import { Menu } from "@/components/menu";
 
-export const fallbackMenuDate = '2/14/2025';
-export const fallbackMenu: Menu = {
+export const CACHE_TTL = 1000 * 60 * 60 * 24; // 1 day expiration
+
+export const fallbackMainMenuDate = '2/14/2025';
+export const fallbackMainMenu: Menu = {
     food: {
         sections: [
             {
@@ -450,3 +452,156 @@ export const fallbackMenu: Menu = {
         ]
     }
 }
+
+export const fallbackCateringMenuDate = '4/11/2025';
+export const fallbackCateringMenu: Menu = {
+  food: {
+    sections: [
+      {
+        type: "LUNCH BOX",
+        description: "Serves 10. Includes one of each below",
+        items: [
+          {
+            name: "Half Po Boy",
+            description: "choice of hot sausage, catfish or shrimp served fully dressed (can be split 5 and 5)",
+            price: 180.0
+          },
+          {
+            name: "Savory Side",
+            description: "choice of red beans and rice or gumbo",
+            price: undefined
+          },
+          {
+            name: "Fresh Side",
+            description: "choice of side salad or coleslaw",
+            price: undefined
+          }
+        ]
+      },
+      {
+        type: "STARTERS",
+        description: "Serves 10–15",
+        items: [
+          {
+            name: "Garden District Dip",
+            description: "cajun shrimp & crawfish dip served with french bread",
+            price: 140.0
+          },
+          {
+            name: "Audubon Crawfish Beignets",
+            description: "crawfish, scallion, and remoulade dipping sauce",
+            price: 120.00
+          }
+        ]
+      },
+      {
+        type: "ENTREES",
+        description: undefined,
+        items: [
+          {
+            name: "Red Beans & Rice",
+            description: "pork belly, red beans, smoked sausage and white rice",
+            price: 150.0
+          },
+          {
+            name: "Etouffee",
+            description: "smothered shrimp and crawfish served with white rice",
+            price: 220.0
+          },
+          {
+            name: "Vegan Dirty Rice",
+            description: "beyond meat, holy trinity, seasoned rice",
+            price: 240.0
+          },
+          {
+            name: "Jambalaya",
+            description: "andouille sausage, shrimp, holy trinity choice of pasta or rice",
+            price: 200.0
+          }
+        ]
+      },
+      {
+        type: "SIDES",
+        description: "Serves 10–15",
+        items: [
+          {
+            name: "Cajun Corn Maque Choux",
+            description: "cajun spiced corn, holy trinity and jalapeno blend",
+            price: 40.0
+          },
+          {
+            name: "House Salad",
+            description: "mixed greens, red onion, cheddar cheese, carrots, tomato and croutons with choice of dressing",
+            price: 45.0
+          },
+          {
+            name: "Baked Mac and Cheese",
+            description: "sharp cheddar mac and cheese",
+            price: 55.0
+          }
+        ]
+      },
+      {
+        type: "A LA CARTE",
+        description: undefined,
+        items: [
+          {
+            name: "Catfish Filets",
+            description: "10 fried catfish filets",
+            price: 75.0
+          },
+          {
+            name: "Fried Shrimp",
+            description: "3 pounds of fried shrimp",
+            price: 65.0
+          },
+          {
+            name: "Southern Hospitality Chicken",
+            description: "20 crispy cajun honey chicken thighs",
+            price: 50.0
+          },
+          {
+            name: "Muffuletta",
+            description: "8 half sandwiches: olive salad, capicola, mortadella, salami, mozzarella and provolone on sesame bread",
+            price: 65.0
+          }
+        ]
+      },
+      {
+        type: "DESSERTS",
+        description: undefined,
+        items: [
+          {
+            name: "Pecan Pound Cake",
+            description: "one bunt cake with home made glaze and heath topping",
+            price: 30.0
+          },
+          {
+            name: "Cookie",
+            description: "inquire about current flavor selection. price is per each",
+            price: 1.5
+          }
+        ]
+      },
+      {
+        type: "ADD ONS",
+        description: undefined,
+        items: [
+          {
+            name: "Remoulade Sauce",
+            description: "12 oz bottle",
+            price: 8.0
+          },
+          {
+            name: "Dressing",
+            description: "ranch, house, or caesar",
+            price: 6.0
+          }
+        ]
+      }
+    ]
+  },
+  drinks: {
+    sections: []
+  }
+};

@@ -5,7 +5,7 @@ interface MenuItemProps {
   bulkPrice?: string // currently only used for wine by the bottle
 }
 
-export function MenuItem({ name, description, price, bulkPrice }: MenuItemProps) {
+export function MenuItemComponent({ name, description, price, bulkPrice }: MenuItemProps) {
   return (
     <div className="border-b border-gray-200 pb-4">
       <div className="flex justify-between items-start gap-4 mt-2">
@@ -14,7 +14,7 @@ export function MenuItem({ name, description, price, bulkPrice }: MenuItemProps)
           {description && <p className="text-sm text-gray-600 mt-1">{description}</p>}
         </div>
         {
-          price && 
+          price &&
             <div className="font-semibold whitespace-nowrap">
               ${price}{bulkPrice && ` / $${bulkPrice}`}
             </div>
