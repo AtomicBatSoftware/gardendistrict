@@ -19,7 +19,6 @@ export default function FAQPage() {
   const [faqList, setFaqList] = useState<FaqRow[]>([]);
 
   useEffect(() => {
-    console.log("rendering faq")
     async function fetchFAQs() {
       const faqRowList: FaqRow[] = await fetchSheetData<FaqRow>(FAQ_SHEET_LINK,
         row => ({
