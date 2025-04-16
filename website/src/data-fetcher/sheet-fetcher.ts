@@ -19,7 +19,6 @@ interface CsvMenuDataRow {
 
 export async function fetchMenuData(dataUrl: string, setMenu: (menu : Menu) => void, cacheKey: string, cacheExpirationKey: string, fallbackMenu? : Menu, fallbackMenuDate? : string) {
   try {
-    //const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFe8zXVdVW7slOpUu8hsp32MnnEz1ZGRivhEWJjaBUIWxz5jRXd8qYjKrZ05KEQG0F-kT1YFlFiSaZ/pub?output=csv";
     const dataResponse = await fetch(dataUrl, {
       redirect: "follow",
       cache: "no-store", // Prevent browser cache
