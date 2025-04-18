@@ -1,5 +1,5 @@
 import Papa from "papaparse";
-import { Menu, MenuItem } from "@/components/menu";
+import { Menu, MenuCategory, MenuItem, MenuSection } from "@/components/menu";
 import { CACHE_TTL } from "@/lib/constants";
 
 interface CsvMenuDataRow {
@@ -70,24 +70,26 @@ export async function fetchMenuData(dataUrl: string, setMenu: (menu : Menu) => v
           return acc;
         }, {} as Record<string, Record<string, { items: MenuItem[], description?: string }>>);
 
+        const menusByCategory: Record<string, MenuCategory> = {};
+
+        Object.entries(groupedData).forEach(([categoryName, sectionsObj]) => {
+          const sections: MenuSection[] = Object.entries(sectionsObj).map(
+            ([sectionType, sectionData]) => ({
+              type: sectionType,
+              description: sectionData.description,
+              items: sectionData.items,
+            })
+          );
+
+          const menuCategory: MenuCategory = { sections };
+
+          menusByCategory[categoryName] = menuCategory;
+        });
+
         // Transform into Menu structure with guaranteed food and drinks categories
         const menu: Menu = {
-          food: {
-            sections: groupedData['FOOD'] ? Object.entries(groupedData['FOOD']).map(([typeName, data]) => ({
-              type: typeName,
-              description: data.description,
-              items: data.items
-            })) : []
-          },
-          drinks: {
-            sections: groupedData['DRINKS'] ? Object.entries(groupedData['DRINKS']).map(([typeName, data]) => ({
-              type: typeName,
-              description: data.description,
-              items: data.items
-            })) : []
-          }
+          menusByCategory: menusByCategory
         };
-
 
         // Store in localStorage with expiration
         localStorage.setItem(cacheKey, JSON.stringify(menu));

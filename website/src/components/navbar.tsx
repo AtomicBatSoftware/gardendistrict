@@ -52,6 +52,8 @@ export const Navbar = () => {
             />
             <Separator />
             <NavLink href="/contact" label="CONTACT" />
+            <Separator />
+            <NavLink href="/faq" label="FAQ" />
           </div>
 
           {/* Social Icons (Desktop) */}
@@ -111,6 +113,7 @@ export const Navbar = () => {
             />
             <NavLink href="/catering" label="CATERING" />
             <NavLink href="/contact" label="CONTACT" />
+            <NavLink href="/faq" label="FAQ" />
           </div>
 
           {/* Social Icons (Mobile) */}

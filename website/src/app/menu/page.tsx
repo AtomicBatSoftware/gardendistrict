@@ -1,3 +1,5 @@
+'use client';
+
 import { Menu } from "@/components/menu";
 import { Navbar } from "@/components/navbar";
 import { fallbackMainMenu, fallbackMainMenuDate } from '@/lib/constants';
