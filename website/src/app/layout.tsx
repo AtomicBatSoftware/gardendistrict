@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Garden District GR",
   icons: "/favicon.ico",
-  description: "Garden District GR - Your premier destination for gardening and outdoor living in Greece",
+  description: "Garden District GR - Your premier destination for authentic Cajun and Southern cuisine in Grand Rapids, Michigan.",
 };
 
 export { viewport };
