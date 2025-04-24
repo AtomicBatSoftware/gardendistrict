@@ -17,7 +17,6 @@ const MAIN_MENU_SHEET_LINK = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 const CATERING_PDF_SHEET_LINK = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFe8zXVdVW7slOpUu8hsp32MnnEz1ZGRivhEWJjaBUIWxz5jRXd8qYjKrZ05KEQG0F-kT1YFlFiSaZ/pub?output=csv&gid=1817215082";
 const PDF_LINK_KEY = "catering_pdf_link";
 
-
 interface PdfLinkRow {
   name: string;
   link: string;
