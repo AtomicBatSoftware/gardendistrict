@@ -1,6 +1,9 @@
 import { Navbar } from "@/components/navbar";
 import { FullScreenCarousel } from "@/components/image-carousel";
 import { InfoBanner } from "@/components/info-banner";
+import { homeMetadata } from "@/config/seo-metadata";
+
+export const metadata = homeMetadata;
 
 export default function Home() {
   return (
@@ -13,23 +16,42 @@ export default function Home() {
           HOURS & LOCATION
         </div>
         <div id="locationSection" className="text-center text-2xl">
-          55 Monroe Center Street NW
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=55+Monroe+Center+Street+NW+Grand+Rapids+MI+49503" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-[#b77e08] transition-colors duration-200"
+          >
+            55 Monroe Center Street NW
+            <br/>
+            Grand Rapids, MI 49503
+          </a>
           <br/>
-          Grand Rapids, MI 49503
-          <br/>
-          (616) 376-4002
+          <a href="tel:6163764002" className="hover:text-[#b77e08] transition-colors duration-200">
+            (616) 376-4002
+          </a>
         </div>
-        <div id="hoursSection" className="text-center text-2xl">
-          <p className="font-bold underline text-lg text-center">Hours:</p>
-          Monday-Thursday
-          <br/>
-          11:30am-3:00pm 4:30pm-9:00pm
-          <br/>
-          Friday & Saturday
-          <br/>
-          11:30am-3:00pm 4:30pm-10:00pm
-          <br/>
-          Sunday Closed
+        <div id="hoursSection" className="text-center text-2xl pt-6">
+          <div className="space-y-4">
+            <div className="flex flex-col items-center">
+              <span className="font-semibold mb-1">Monday-Thursday</span>
+              <div className="flex flex-col items-center text-[#483248]">
+                <span>11:30am - 3:00pm</span>
+                <span>4:30pm - 9:00pm</span>
+              </div>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="font-semibold mb-1">Friday & Saturday</span>
+              <div className="flex flex-col items-center text-[#483248]">
+                <span>11:30am - 3:00pm</span>
+                <span>4:30pm - 10:00pm</span>
+              </div>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="font-semibold mb-1">Sunday</span>
+              <span className="text-[#483248]">Closed</span>
+            </div>
+          </div>
         </div>
 
       </div>
