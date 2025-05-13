@@ -34,27 +34,21 @@ export default function Home() {
         <div id="hoursSection" className="text-center text-2xl pt-6">
           <div className="space-y-4">
             <div className="flex flex-col items-center">
-              <span className="font-semibold mb-1">Monday-Thursday</span>
+              <span className="font-semibold mb-1">Monday - Thursday</span>
               <div className="flex flex-col items-center text-[#483248]">
-                <span>11:30am - 9:00pm</span>
+                <span>11:30am - 9pm</span>
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-semibold mb-1">Friday</span>
+              <span className="font-semibold mb-1">Friday & Saturday</span>
               <div className="flex flex-col items-center text-[#483248]">
-                <span>11:30am - 10:00pm</span>
-              </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="font-semibold mb-1">Saturday</span>
-              <div className="flex flex-col items-center text-[#483248]">
-                <span>10:00am - 10:00pm</span>
+                <span>11:30am - 10pm</span>
               </div>
             </div>
             <div className="flex flex-col items-center">
               <span className="font-semibold mb-1">Sunday</span>
               <div className="flex flex-col items-center text-[#483248]">
-                <span>10:00am - 3:00pm</span>
+                <span>10am - 3pm</span>
               </div>
             </div>
             <hr/>
@@ -67,7 +61,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
               <span className="font-semibold mb-1">Brunch</span>
               <div className="flex flex-col items-center text-[#483248]">
-                <span>Saturday & Sunday from 10am - 3pm</span>
+                <span>Sunday from 10am - 3pm</span>
               </div>
             </div>
           </div>

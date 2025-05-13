@@ -141,7 +141,7 @@ export function Menu(props: MenuProps) {
                 <Clock color="white" className="text-white h-4 w-4" />
                 <AlertTitle><div className="text-lg font-bold">Menu Availability</div></AlertTitle>
                 <AlertDescription>
-                  Saturday & Sunday from 10am - 3pm
+                  Sunday from 10am - 3pm
                 </AlertDescription>
               </Alert>
             </div>
