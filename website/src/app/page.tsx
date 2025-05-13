@@ -16,9 +16,9 @@ export default function Home() {
           HOURS & LOCATION
         </div>
         <div id="locationSection" className="text-center text-2xl">
-          <a 
-            href="https://www.google.com/maps/search/?api=1&query=55+Monroe+Center+Street+NW+Grand+Rapids+MI+49503" 
-            target="_blank" 
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=55+Monroe+Center+Street+NW+Grand+Rapids+MI+49503"
+            target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#b77e08] transition-colors duration-200"
           >
@@ -36,20 +36,39 @@ export default function Home() {
             <div className="flex flex-col items-center">
               <span className="font-semibold mb-1">Monday-Thursday</span>
               <div className="flex flex-col items-center text-[#483248]">
-                <span>11:30am - 3:00pm</span>
-                <span>4:30pm - 9:00pm</span>
+                <span>11:30am - 9:00pm</span>
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-semibold mb-1">Friday & Saturday</span>
+              <span className="font-semibold mb-1">Friday</span>
               <div className="flex flex-col items-center text-[#483248]">
-                <span>11:30am - 3:00pm</span>
-                <span>4:30pm - 10:00pm</span>
+                <span>11:30am - 10:00pm</span>
+              </div>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="font-semibold mb-1">Saturday</span>
+              <div className="flex flex-col items-center text-[#483248]">
+                <span>10:00am - 10:00pm</span>
               </div>
             </div>
             <div className="flex flex-col items-center">
               <span className="font-semibold mb-1">Sunday</span>
-              <span className="text-[#483248]">Closed</span>
+              <div className="flex flex-col items-center text-[#483248]">
+                <span>10:00am - 3:00pm</span>
+              </div>
+            </div>
+            <hr/>
+            <div className="flex flex-col items-center">
+              <span className="font-semibold mb-1">Lunch Duo</span>
+              <div className="flex flex-col items-center text-[#483248]">
+                <span>Monday-Friday from 11:30am-3pm</span>
+              </div>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="font-semibold mb-1">Brunch</span>
+              <div className="flex flex-col items-center text-[#483248]">
+                <span>Saturday & Sunday from 10am - 3pm</span>
+              </div>
             </div>
           </div>
         </div>
