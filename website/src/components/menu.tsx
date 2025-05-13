@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { MenuItemComponent } from "@/components/menu-item";
 import { fetchMenuData } from "@/data-fetcher/sheet-fetcher";
 import { Skeleton } from "./ui/skeleton";
+import { Clock } from "lucide-react";
+import { Alert, AlertTitle, AlertDescription } from "./ui/alert";
 
 export interface Menu {
   menusByCategory: Record<string, MenuCategory>;
@@ -101,6 +103,7 @@ export function Menu(props: MenuProps) {
       <div className="min-h-screen w-full bg-[#f5f5f5] p-8">
         <div className="max-w-6xl mx-auto">
           {/* Menu Tabs */}
+
           <div className="flex flex-row flex-wrap justify-center mb-12 gap-2">
             {
               Object.keys(menu.menusByCategory).map((key) => (
@@ -113,7 +116,36 @@ export function Menu(props: MenuProps) {
                 </button>
               ))
             }
+
+
           </div>
+
+          {/* Menu availability times*/}
+          {
+            menuCategorySelection === 'LUNCH DUO' &&
+            <div className="flex flex-row flex-wrap justify-center mb-12 gap-2">
+              <Alert className="bg-[#b77e08] text-white">
+                <Clock color="white" className="text-white h-4 w-4" />
+                <AlertTitle><div className="text-lg font-bold">Menu Availability</div></AlertTitle>
+                <AlertDescription>
+                  Monday-Friday from 11:30am - 3pm
+                </AlertDescription>
+              </Alert>
+            </div>
+          }
+
+          {
+            menuCategorySelection === 'BRUNCH' &&
+            <div className="flex flex-row flex-wrap justify-center mb-12 gap-2">
+              <Alert className="bg-[#b77e08] text-white">
+                <Clock color="white" className="text-white h-4 w-4" />
+                <AlertTitle><div className="text-lg font-bold">Menu Availability</div></AlertTitle>
+                <AlertDescription>
+                  Saturday & Sunday from 10am - 3pm
+                </AlertDescription>
+              </Alert>
+            </div>
+          }
 
           {/* Menu Content */}
           <div className="columns-1 md:columns-2 gap-4">
