@@ -6,7 +6,7 @@ export const metadata = contactMetadata
 
 export default function ContactPage() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Navbar />
       <ContactForm/>
     </div>
