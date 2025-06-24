@@ -38,6 +38,7 @@ export default function FAQPage() {
       } else {
         console.error(`Failed to get FAQ list`);
       }
+      setLoading(false);
     }
 
     // TODO: move this into a reuseable cache getter/setter
@@ -54,7 +55,6 @@ export default function FAQPage() {
       setLoading(false);
     } else {
       fetchFAQs();
-      setLoading(false);
     }
   }, []);
 

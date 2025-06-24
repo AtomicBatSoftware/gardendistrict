@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { viewport } from "@/config/seo-metadata";
 import "./globals.css";
+import AtomicBatFooter from "@/components/ab-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <AtomicBatFooter/>
       </body>
     </html>
   );
