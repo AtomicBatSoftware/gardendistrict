@@ -58,12 +58,6 @@ export default function Home() {
                 <span>Monday-Friday from 11:30am-3pm</span>
               </div>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="font-semibold mb-1">Brunch</span>
-              <div className="flex flex-col items-center text-[#483248]">
-                <span>Sunday from 10am - 3pm</span>
-              </div>
-            </div>
           </div>
         </div>
 
