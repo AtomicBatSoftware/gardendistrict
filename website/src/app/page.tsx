@@ -48,7 +48,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
               <span className="font-semibold mb-1">Sunday</span>
               <div className="flex flex-col items-center text-[#483248]">
-                <span>10am - 3pm</span>
+                <span>11:30am - 3pm</span>
               </div>
             </div>
             <hr/>
