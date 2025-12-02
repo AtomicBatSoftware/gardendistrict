@@ -42,7 +42,7 @@ export const Navbar = () => {
             />
             <Separator />
             <NavLink
-              href="https://www.waitlist.me/w/17334990070#"
+              href="https://tableagent.com/grand-rapids/garden-district/table-search/"
               label="RESERVE"
             />
             <Separator />
@@ -108,7 +108,7 @@ export const Navbar = () => {
               label="ORDER"
             />
             <NavLink
-              href="https://www.waitlist.me/w/17334990070#"
+              href="https://tableagent.com/grand-rapids/garden-district/table-search/"
               label="RESERVE"
             />
             <NavLink href="/catering" label="CATERING" />
